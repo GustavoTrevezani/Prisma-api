@@ -3,7 +3,6 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { UnauthorizedInterceptor } from './common/errors/interceptors/unauthorized.interceptor';
 import { NotFoundInterceptor } from './common/errors/interceptors/notFound.interceptor';
-import { ConflictError } from './common/errors/types/conflictError';
 import { ConflictInterceptor } from './common/errors/interceptors/conflict.interceptor';
 import { DatabaseInterceptor } from './common/errors/interceptors/database.interceptor';
 
