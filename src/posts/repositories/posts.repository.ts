@@ -1,8 +1,8 @@
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { PostEntity } from '../entities/post.entity';
 import { CreatePostDto } from '../dto/create-post.dto';
 import { UpdatePostDto } from '../dto/update-post.dto';
-import { Injectable } from '@nestjs/common';
+import { PostEntity } from '../entities/post.entity';
 
 @Injectable()
 export class PostsRepository {
@@ -13,11 +13,9 @@ export class PostsRepository {
       data: createPostDto,
     });
   }
-
   async findAll(): Promise<PostEntity[]> {
     return await this.prisma.post.findMany();
   }
-
   async findOne(id: number): Promise<PostEntity> {
     return this.prisma.post.findUnique({
       where: {
@@ -25,13 +23,12 @@ export class PostsRepository {
       },
     });
   }
-
-  async update(id: number, UpdatePostDto: UpdatePostDto): Promise<PostEntity> {
+  async update(id: number, updatePostDto: UpdatePostDto): Promise<PostEntity> {
     return this.prisma.post.update({
       where: {
         id,
       },
-      data: UpdatePostDto,
+      data: updatePostDto,
     });
   }
   async remove(id: number): Promise<PostEntity> {

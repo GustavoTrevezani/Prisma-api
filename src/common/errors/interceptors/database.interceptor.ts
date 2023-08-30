@@ -14,8 +14,9 @@ export class DatabaseInterceptor implements NestInterceptor {
         }
         if (error instanceof DatabaseError) {
           throw new BadRequestException(error.message);
+        } else {
+          throw error;
         }
-        throw error;
       }),
     );
   }
